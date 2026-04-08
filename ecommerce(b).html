@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>E-commerce Web Page</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+}
+
+.container{
+display:grid;
+grid-template-columns:200px 1fr;
+grid-template-rows:auto auto 1fr auto;
+
+grid-template-areas:
+"header header"
+"sale sale"
+"sidebar products"
+"footer footer";
+
+gap:10px;
+padding:10px;
+}
+
+/* Header */
+.header{
+grid-area:header;
+background:blue;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+/* Sale */
+.sale{
+grid-area:sale;
+background:orange;
+text-align:center;
+padding:10px;
+}
+
+/* Sidebar */
+.sidebar{
+grid-area:sidebar;
+background:#eee;
+padding:15px;
+}
+
+.sidebar a{
+display:block;
+padding:8px;
+text-decoration:none;
+color:black;
+}
+
+/* Products */
+.products{
+grid-area:products;
+}
+
+/* Hide all sections */
+.category{
+display:none;
+}
+
+/* Show selected category */
+.category:target{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+}
+
+/* Card */
+.card{
+border:1px solid #ccc;
+padding:10px;
+text-align:center;
+}
+
+/* Footer */
+.footer{
+grid-area:footer;
+background:black;
+color:white;
+text-align:center;
+padding:15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">E-Commerce Web-Page</div>
+
+<div class="sale">🔥 Flash 50% Offer 🔥</div>
+
+<div class="sidebar">
+<h3>Categories</h3>
+
+<a href="#electronics">Electronics</a>
+<a href="#clothing">Clothing</a>
+<a href="#books">Books</a>
+
+</div>
+
+<div class="products">
+
+<!-- Electronics -->
+<div id="electronics" class="category">
+
+<div class="card">
+<h4>Mobile</h4>
+<img  height=100px width100px src="iphone.png">
+<p>₹15000</p>
+</div>
+
+<div class="card">
+<h4>Laptop</h4>
+<img height="100px" width="100px" src="laptop.png">
+<p>₹50000</p>
+</div>
+
+<div class="card">
+<h4>Headphones</h4>
+<img height="100px" width="100px" src="headphones.png">
+<p>₹2000</p>
+</div>
+
+<div class="card">
+<h4>TV</h4>
+<img height="100px" width="100px" src="television.png">
+<p>₹70000</p>
+</div>
+
+</div>
+
+<!-- Clothing -->
+<div id="clothing" class="category">
+
+<div class="card">
+<h4>T-Shirt</h4>
+<img height="100px" width="100px" src="t-s.png">
+<p>₹1500</p>
+</div>
+
+<div class="card">
+<h4>Jeans</h4>
+<img height="100px" width="100px" src="jeans.png">
+<p>₹2500</p>
+</div>
+
+<div class="card">
+<h4>Jacket</h4>
+<img height="100px" width="100px" src="jacket.png">
+<p>₹3500</p>
+</div>
+
+</div>
+
+<!-- Books -->
+<div id="books" class="category">
+
+<div class="card">
+<h4>Monalisa</h4>
+<img height="100px" width="100px" src="monalisa.png">
+<p>₹500</p>
+</div>
+
+<div class="card">
+<h4>Think and Grow rich</h4>
+<img height="100px" width="100px" src="book4.png">
+<p>₹600</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="footer">© 2026 My Store</div>
+
+</div>
+
+</body>
+</html>
