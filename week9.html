@@ -1,0 +1,156 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title>Number Programs</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(silver);
+        text-align: center;
+        color: black;
+    }
+    .container {
+        margin-top: 50px;
+        background: whitesmoke;
+        padding: 30px;
+        border-radius: 15px;
+        width: 350px;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    input {
+        padding: 10px;
+        width: 80%;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+    }
+    button {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px;
+        border: none;
+        border-radius: 8px;
+        background: red;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+    button:hover {
+        background: white;
+    }
+    .output {
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 10px;
+        background: greenyellow;
+        font-weight: bold;
+    }
+</style>
+<body>
+<div class="container">
+    <h2>Number Programs</h2>
+    <input type="number" id="num" placeholder="Enter a number">
+    <button onclick="checkEven()">Check Even</button><br>
+    <button onclick="checkOdd()">Check Odd</button><br>
+    <button onclick="checkPrime()">Prime or Not</button><br>
+    <button onclick="factorial()">Factorial</button><br>
+    <button onclick="armstrong()">Armstrong or Not</button><br>
+
+<div class="output" id="result">Output will appear here</div>
+
+</div>
+</body>
+<script>
+function getNumber() {
+    let num = document.getElementById("num").value;
+    if (num === "") {
+        document.getElementById("result").innerText = "Please enter a number!";
+        return null;
+    }
+    return parseInt(num);
+}
+
+function checkEven() {
+    let num = getNumber();
+    if (num === null)
+     return;
+
+    if (num % 2 === 0)
+        document.getElementById("result").innerText = num + " is Even";
+    else
+        document.getElementById("result").innerText = num + " is Not Even";
+}
+
+function checkOdd() {
+    let num = getNumber();
+    if (num === null) 
+     return;
+
+    if (num % 2 !== 0)
+        document.getElementById("result").innerText = num + " is Odd";
+    else
+        document.getElementById("result").innerText = num + " is Not Odd";
+}
+
+function checkPrime() {
+    let num = getNumber();
+    if (num === null) return;
+
+    if (num <= 1) {
+        document.getElementById("result").innerText = num + " is Not Prime";
+        return;
+    }
+
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+            document.getElementById("result").innerText = num + " is Not Prime";
+            return;
+        }
+    }
+
+    document.getElementById("result").innerText = num + " is Prime";
+}
+
+function factorial() {
+    let num = getNumber();
+    if (num === null) return;
+
+    if (num < 0) {
+        document.getElementById("result").innerText = "Factorial not defined for negative numbers";
+        return;
+    }
+
+    let fact = 1;
+    for (let i = 1; i <= num; i++) {
+        fact *= i;
+    }
+
+    document.getElementById("result").innerText = "Factorial of " + num + " is " + fact;
+}
+
+function armstrong() {
+    let num = getNumber();
+    if (num === null)
+     return;
+
+    let original = num;
+    let sum = 0;
+    let digits = num.toString().length;
+
+    while (num > 0) {
+        let rem = num % 10;
+        sum += Math.pow(rem, digits);
+        num = Math.floor(num / 10);
+    }
+
+    if (sum === original)
+        document.getElementById("result").innerText = original + " is an Armstrong number";
+    else
+        document.getElementById("result").innerText = original + " is Not an Armstrong number";
+}
+</script>
+</head>
+</html>
